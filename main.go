@@ -10,7 +10,6 @@ func setupRouter() *gin.Engine {
 	return r
 }
 
-
 func handler(c *gin.Context) {
 	c.JSON(200, gin.H{"msg": "Hello World!\n"})
 }
