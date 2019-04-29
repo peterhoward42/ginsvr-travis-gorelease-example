@@ -1,8 +1,21 @@
-version: 2
-jobs:
-  build:
-    docker:
-      - image: circleci/python:3.6.2-stretch-browsers
-    steps:
-      - checkout
-      - run: echo "A first hello"
+# Derived from
+# https://raw.githubusercontent.com/CircleCI-Public/circleci-demo-go/master/.circleci/config.yml
+
+version: 2 
+jobs: 
+  build: 
+    docker: 
+      - image: circleci/golang:1.11
+    environment:
+      TEST_RESULTS: /tmp/test-results
+    steps: 
+      # - checkout  # Use go get instead of builtin checkout to fetch and build dependencies
+      - run: go get -t github.com/peterhoward42/gremlinapi-svr-api
+      - run: mkdir -p $TEST_RESULTS
+      - run:
+          name: Run unit tests
+          command: |
+            PACKAGE_NAMES=$(go list ./...)
+            gotestsum --junitfile ${TEST_RESULTS}/gotestsum-report.xml -- $PACKAGE_NAMES
+      - store_test_results:
+          path: /tmp/test-results
