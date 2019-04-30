@@ -10,5 +10,5 @@ script:
 - set -e
 - go test -v ./...
 - docker build -t peterhoward42/gremlin-svr-api .
-- docker container ls
+- docker image ls
 - echo XXXXX finished
