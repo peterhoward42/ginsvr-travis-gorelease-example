@@ -7,7 +7,8 @@ services:
 - docker
 
 script:
+- set -e
 - go test -v ./...
 - docker build -t peterhoward42/gremlin-svr-api
-- run docker container ls
-- run echo XXXXX finished
+- docker container ls
+- echo XXXXX finished
