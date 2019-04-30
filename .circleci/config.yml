@@ -1,6 +1,3 @@
-# Derived from
-# https://raw.githubusercontent.com/CircleCI-Public/circleci-demo-go/master/.circleci/config.yml
-
 version: 2 
 jobs: 
   build: 
