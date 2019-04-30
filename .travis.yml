@@ -9,6 +9,6 @@ services:
 script:
 - set -e
 - go test -v ./...
-- docker build -t peterhoward42/gremlin-svr-api
+- docker build -t peterhoward42/gremlin-svr-api .
 - docker container ls
 - echo XXXXX finished
