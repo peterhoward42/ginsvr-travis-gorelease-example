@@ -13,3 +13,6 @@
 
 # The built executable binary
 gremlinapi-svr-api
+
+# dist directory containing cross platform binary releases
+dist/
